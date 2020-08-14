@@ -15,5 +15,7 @@ public class Item {
     @NotNull
     private String name;
     @NotNull
+    private String pics;
+    @NotNull
     private String price;
 }

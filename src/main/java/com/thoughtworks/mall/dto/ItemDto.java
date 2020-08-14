@@ -21,6 +21,7 @@ public class ItemDto {
   @GeneratedValue
   private int id;
   private String name;
+  private String pics;
   private String price;
 
 
