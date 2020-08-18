@@ -15,12 +15,11 @@ import javax.persistence.Table;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "items")
-public class ItemDto {
+@Table(name = "orders")
+public class OrderDto {
   @Id
   @GeneratedValue
   private int id;
-  private String name;
-  private String pics;
-  private String price;
+  private String itemName;
+  private int itemNumber;
 }
