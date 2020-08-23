@@ -28,4 +28,11 @@ public class OrderController {
   public ResponseEntity<List<OrderDto>> getOrders() {
     return ResponseEntity.ok(orderService.getOrders());
   }
+
+  @CrossOrigin
+  @DeleteMapping("/orders/{id}")
+  public ResponseEntity<Integer> deleteOrder(@PathVariable Integer id) {
+    orderService.deleteOrder(id);
+    return ResponseEntity.ok().build();
+  }
 }

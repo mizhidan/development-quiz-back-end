@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class ItemDto {
   @Id
   @GeneratedValue
-  private int id;
+  private Integer id;
   private String name;
   private String pics;
   private String price;

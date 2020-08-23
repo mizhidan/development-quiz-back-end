@@ -36,4 +36,8 @@ public class OrderService {
   public List<OrderDto> getOrders() {
     return orderRepository.findAll();
   }
+
+  public void deleteOrder(Integer id) {
+    orderRepository.deleteById(id);
+  }
 }

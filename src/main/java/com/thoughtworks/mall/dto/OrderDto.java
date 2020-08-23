@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class OrderDto {
   @Id
   @GeneratedValue
-  private int id;
+  private Integer id;
   private String itemName;
   private int itemNumber;
   private String price;

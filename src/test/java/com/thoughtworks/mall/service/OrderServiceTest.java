@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.validateMockitoUsage;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -45,5 +46,12 @@ public class OrderServiceTest {
     orderService.saveOrder(order);
     orderService.getOrders();
     verify(orderRepository).findAll();
+  }
+
+  @Test
+  public void should_delete_orders() {
+    Integer id = 1;
+    orderService.deleteOrder(id);
+    verify(orderRepository).deleteById(id);
   }
 }
