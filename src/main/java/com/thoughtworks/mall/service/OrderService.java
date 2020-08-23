@@ -19,14 +19,21 @@ public class OrderService {
   public void saveOrder(Order order) {
     OrderDto orderDto = orderRepository.findByItemName(order.getItemName());
     if(orderDto == null) {
-      orderRepository.save( OrderDto
+      orderRepository.save(
+        OrderDto
         .builder()
         .itemName(order.getItemName())
+        .itemUnit(order.getItemUnit())
+        .price(order.getPrice())
         .itemNumber(order.getItemNumber())
         .build());
     } else {
       orderDto.setItemNumber(orderDto.getItemNumber() + 1);
       orderRepository.save(orderDto);
     }
+  }
+
+  public List<OrderDto> getOrders() {
+    return orderRepository.findAll();
   }
 }

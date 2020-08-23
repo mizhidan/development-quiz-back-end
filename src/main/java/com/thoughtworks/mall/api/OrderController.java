@@ -1,11 +1,12 @@
 package com.thoughtworks.mall.api;
 
 import com.thoughtworks.mall.domain.Order;
+import com.thoughtworks.mall.dto.OrderDto;
 import com.thoughtworks.mall.service.OrderService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class OrderController {
@@ -20,5 +21,11 @@ public class OrderController {
   @PostMapping("/orders")
   public void saveOrder(@RequestBody Order order) {
     orderService.saveOrder(order);
+  }
+
+  @CrossOrigin
+  @GetMapping("/orders")
+  public ResponseEntity<List<OrderDto>> getOrders() {
+    return ResponseEntity.ok(orderService.getOrders());
   }
 }

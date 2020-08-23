@@ -23,4 +23,5 @@ public class ItemDto {
   private String name;
   private String pics;
   private String price;
+  private String itemUnit;
 }

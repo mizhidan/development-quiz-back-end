@@ -22,4 +22,6 @@ public class OrderDto {
   private int id;
   private String itemName;
   private int itemNumber;
+  private String price;
+  private String itemUnit;
 }

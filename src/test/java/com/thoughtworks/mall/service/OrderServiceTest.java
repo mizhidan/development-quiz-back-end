@@ -11,6 +11,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -35,5 +38,12 @@ public class OrderServiceTest {
     OrderDto orderDto = OrderDto.builder().itemName(order.getItemName()).itemNumber(order.getItemNumber()).build();
     orderService.saveOrder(order);
     verify(orderRepository).save(orderDto);
+  }
+
+  @Test
+  public void should_get_orders() {
+    orderService.saveOrder(order);
+    orderService.getOrders();
+    verify(orderRepository).findAll();
   }
 }

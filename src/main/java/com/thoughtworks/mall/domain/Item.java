@@ -18,4 +18,6 @@ public class Item {
     private String pics;
     @NotNull
     private String price;
+    @NotNull
+    private String itemUnit;
 }

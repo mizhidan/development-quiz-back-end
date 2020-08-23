@@ -27,6 +27,7 @@ public class ItemController {
           .name(item.getName())
           .pics(item.getPics())
           .price(item.getPrice())
+          .itemUnit(item.getItemUnit())
           .build())
       .collect(Collectors.toList());
     System.out.println(itemRepository.findAll());
