@@ -38,10 +38,8 @@ public class ItemController {
   public ResponseEntity<String> addItemToList(@RequestBody Item item) {
     List<ItemDto> itemDtoList = itemRepository.findAll();
     for ( ItemDto itemDto : itemDtoList) {
-      if (itemDto.getItemUnit().equals(item.getItemUnit()) &&
-        itemDto.getName().equals(item.getName()) &&
-        itemDto.getPrice().equals(item.getPrice())) {
-        return ResponseEntity.badRequest().build();
+      if (itemDto.getName().equals(item.getName())) {
+        return ResponseEntity.status(403).body("item already exist");
       }
     }
     ItemDto itemDto = ItemDto.builder()
